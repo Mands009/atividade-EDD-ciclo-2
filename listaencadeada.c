@@ -3,34 +3,34 @@
 
 /* Lista Simplemente Encadeada*/
 
-typedef struct no{
+typedef struct no {
     int valor;
     struct no *proximo;
-}No;
+} No;
 
 // procedimento para inserir no inicio
-void inserir_no_inicio(No **lista, int num) (
-    No *novo = malloc(sizeof (No));
+void inserir_no_inicio(No **lista, int num) {
+    No *novo = malloc(sizeof(No));
 
-    if(novo) (
+    if(novo) {
         novo->valor = num;
         novo->proximo = *lista;
         *lista = novo;
-    )
-    else
+    } else {
     printf("Erro ao alocar memoria!\n");
-)
+    }
+}
 
 // procedimento para inserir no fim
-void inserir_no_fim(No **lista, int num){
+void inserir_no_fim(No **lista, int num) {
     No *novo = malloc(sizeof(No));
 
-    if(novo){
+    if (novo) {
         novo->valor = num;
         novo->proximo = NULL;
 
         // é o primeiro?
-        if(*lista == NULL)
+        if (*lista == NULL)
             *lista = novo;
         else {
             aux = *lista;
@@ -40,22 +40,23 @@ void inserir_no_fim(No **lista, int num){
         }
         
     }
-    else
+    else {
         printf("Erro ao alocar memoria!\n");
+    }
 }
 
 // procedimento para inserir no meio
-void inserir_no_meio(No **lista, int num, int ant)
+void inserir_no_meio(No **lista, int num, int ant) {
     No *aux, *novo = malloc(sizeof(No));
 
-    if(novo){
+    if (novo) {
         novo->valor = num;
         // é o primeiro?
         if(*lista == NULL) {
             novo->proximo = NULL;
             *lista = novo;
         }
-        else{
+        else {
             aux = *lista;
             while(aux->valor != ant && aux->proximo)
                 aux = aux->proximo;
@@ -65,8 +66,8 @@ void inserir_no_meio(No **lista, int num, int ant)
     }
     else
         printf("Erro ao alocar memoria!\n");
-
-void imprimir(No *no) {
+}
+void imprimir(No *no){
     printf("\n\tLista: ");
     while(no) {
         printf("%d ", no->valor);
@@ -75,7 +76,7 @@ void imprimir(No *no) {
     printf(\n\n);
 }
 
-int main () {
+int main (){
 
     int opcao, valor, anterior;
     No *lista = NULL;
